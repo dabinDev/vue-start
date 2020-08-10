@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="../js/vue.js"></script>
+
+<body>
+    <div id="app">
+        <h1 v-cloak >{{message}}</h1>
+        <h2></h2>
+    </div>
+    <script>
+        setTimeout(() => {
+            const app=new Vue({
+            el: '#app',
+            data: {
+                message:'你好呀'
+            }
+        })
+        }, 1000);
+    
+    </script>
+</body>
+
+</html>

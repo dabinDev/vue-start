@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mustache</title>
+</head>
+<script src="../js/vue.js"></script>
+<body>
+    <div id="app">
+        <span>{{name}}</span>
+        <span>{{firstName}}</span>
+        <span>{{lastName}}</span>
+        <span>{{counter}}</span>
+        <button v-on:click="increase">加一</button>
+        <button v-on:click="reduse">减一</button>
+    </div>
+    <script>
+     var app=new Vue({
+            el:'#app',
+            data:
+            {
+                name:'陈滨',
+                firstName:'滨',
+                lastName:'陈',
+                counter:100,
+            },
+            methods: {
+                increase:function()
+                {
+                    console.log(app.counter);
+                    app.counter++;
+                },
+                reduse:function()
+                {
+                    console.log(app.counter);
+                    app.counter--;
+                },
+            },
+        })
+    </script>
+</body>
+</html>
