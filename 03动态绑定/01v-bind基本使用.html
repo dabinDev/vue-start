@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 错误的做法  src="{{imageUrl}}" 不能使用mustache 语法  -->
+        <!-- 正确的做法使用v-bind   v-bind:src="imageUrl" -->
+        <img  v-bind:src="imageUrl" >
+        <a v-bind:href="aHerf">点击</a>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+     let app=new Vue({
+         el:'#app',
+         data:
+         {
+             imageUrl:'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+             aHerf:'https://www.baidu.com/'
+         }
+     })
+    </script>
+</body>
+</html>

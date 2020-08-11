@@ -6,30 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
-
 <body>
-    <div>
+    <div id="app">
+        <h1 v-once>v-once只修改一次{{name}}</h1>
         <h1>{{name}}</h1>
-        <button>点击</button>
-
-
+        <button v-on:click="changes">点击</button>
     </div>
     <script src="../js/vue.js"></script>
     <script>
-        let app = new Vue({
-            el: "#app",
-            data: {
+        let app=new Vue({
+            el:'#app',
+            data:{
                 name:'chenbin'
-            },methods:
+            },
+            methods:
             {
-                changes:function()
-                {
-                    app.name='陈滨'+="11";
-                    console.log(app.name);
+                changes:function(){
+                    app.name+="123"
                 }
-
             }
-        });
+        })
     </script>
 </body>
 

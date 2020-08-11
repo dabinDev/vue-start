@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+     <span v-text="url"></span>
+     <span v-on:click="showHtml" >点击更换</span>
+    </div >
+    <script src="../js/vue.js"></script>
+    <script>
+        let app=new Vue({
+            el:'#app',
+            data:{
+                url:'<span style="color:red">{{name}}</span>',
+                name:'chenbin'
+            },
+            methods:
+            {
+                showHtml:function()
+                {
+                    app.url='<image  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597137362985&di=3f4c4e28608c5fd460cce10f24a0e97d&imgtype=0&src=http%3A%2F%2Fpic.baiqi008.com%2Fuploads%2Fhkcdnlodov.jpeg" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>';
+                },
+            }
+        })
+    </script>
+</body>
+</html>

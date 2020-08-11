@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .active {
+            color: red;
+        }
+
+        .line {
+            color: gray;
+        }
+    </style>
+    <div id="app">
+        <!-- 普通写法 <h2 class="active">{{name}}</h2> -->
+        <!-- 动态绑定写法 <h2 v-bind:class="active">{{name}}</h2> -->
+        <!-- 动态绑定缩写写法 <h2 :class="active">{{name}}</h2> -->
+        <!-- 固定对象行形式动态绑定 <h2 :class="{'类名1':boolean,'类名2',bollean}">{{name}}</h2> -->
+        <h2 :class="{'active':true,'line':false}">{{name}}</h2>
+        <!-- 固定对象可以控制的写法行形式动态绑定 <h2 :class="{'类名1':boolean,'类名2',bollean}">{{name}}</h2> -->
+        <h2 :class="{'active':isActive,'line':isLine}">{{name}}</h2>
+        
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data:
+            {
+                name: '陈滨',
+                active: 'active',
+                line: 'line',
+                isActive:true,
+isLine:false
+            }
+        })
+    </script>
+</body>
+
+</html>
