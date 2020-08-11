@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="m in movies">{{m}}</li>
+            <li v-for="(m,index) in movies" :class="isCurrentIndex(index)"  v-on:click="clickMovie(index,m)">{{index}}--{{m}}</li>
+        </ul>
+    </div>
+    <script src="../js/vue.js">
+    </script>
+    <script>
+         let app=new Vue({
+             el:'#app',
+             data:
+             {
+                 movies:['海王','海尔兄弟','进击的巨人','火影忍者'],
+                 currentIndex:-1,
+             },
+             methods: {
+                 clickMovie:function(index,e)
+                 {
+                     console.log(index,e);
+                    this.currentIndex=index;
+                 },
+                 isCurrentIndex:function(index)
+                 {
+                    console.log(index);
+                    return index===this.currentIndex?'click':'unclick';
+                 }
+             },
+         })
+        
+    
+    </script>
+
+</body>
+</html>
