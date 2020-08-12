@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <span>{{fullName}}</span>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data:
+            {
+                firstName: 'kobe',
+                lastName: 'bryant'
+            },
+            computed:
+            {
+                /* 计算属性的缩写方式 */
+                /* fullName:function()
+                {
+                    return this.firstName+this.lastName;
+                }, */
+                /* 计算属性未缩写的原有样子 */
+                /* fullName:
+                {
+                    set:function (params) {
+                        consolog.log("参数"+params);
+                        console.log(params);
+                    },
+                    get:function () {
+                        return this.firstName+this.lastName;
+                    }
+                } */
+                /* 计算属性一版是没有set方法,是只读属性 */
+                /* fullName:
+                {
+                    get:function () {
+                        return this.firstName+this.lastName;
+                    }
+                } */
+                /* 计算属性缩写过后的格式 */
+                fullName: function () {
+                    return this.firstName + this.lastName;
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

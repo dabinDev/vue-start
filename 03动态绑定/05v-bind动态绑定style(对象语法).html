@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <span v-bind:style="{key(属性名):value(属性值)}">{{message}}</span> -->
+        <!--  value 如果想直接输入值 必须加上单引号 <span v-bind:style="{ffontSize:'20px'}">{{message}}</span> -->
+        <span v-bind:style="{fontSize:finalSize+'px'}">{{message}}</span>
+
+    </div >
+          <script src="../js/vue.js"></script>
+<script>
+        let app=new Vue({
+            el:'#app',
+            data:
+            {
+                message:'helloword',
+                finalSize:100,
+            }
+        })
+
+    </script>
+</body>
+</html>

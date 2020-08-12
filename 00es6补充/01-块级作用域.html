@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" style="display: flex; flex-direction: column;">
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+        <button>按钮5</button>
+        <button>按钮6</button>
+    </div>
+    <script>
+        //1.变量作用域：变量在什么范围可以使用
+        // {
+        //     var name = "dabin";
+        //     console.log(name);
+        // }
+        // console.log(name);
+        
+        //2.没有块级作用域的问题    if的块级作用域
+        // var func;
+        // if(true)
+        // {
+        //     var name ='dabin';
+        //     func=function()
+        //     {
+        //         console.log(name);
+        //     }
+        // }
+        // name ='test';
+        // func();
+
+
+
+        //3.没有块级作用域的问题 for的块级
+        // var btns = document.getElementsByTagName('button');
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].addEventListener('click', function () {
+        //         console.log("第" + i + "按钮被点击");
+        //     })
+        // }
+
+        //和闭包差不多意思  因为 es5只有 函数有自己的作用域
+        // var btns = document.getElementsByTagName('button');
+        // for (var i = 0; i < btns.length; i++) {
+        //     (function(num)
+        //     {
+        //         btns[num].addEventListener('click', function () {
+        //         console.log("第" + num + "按钮被点击");
+        //     })
+        //     })(i)
+        // }
+
+
+        //ES6中有 使用 let完美的 var 可以解决作用域的问题
+        var btns = document.getElementsByTagName('button');
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function () {
+                console.log("第" + i + "按钮被点击");
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>
