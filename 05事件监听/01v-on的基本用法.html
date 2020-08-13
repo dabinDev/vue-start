@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   
+
+</style>
+
+<body>
+    <div style="display: flex; flex-direction:column;" id="app">
+        <span>{{counter}}</span>
+        <!-- <button v-on:click="counter++">++</button>
+        <button v-on:click="counter--">--</button> -->
+
+        <!-- v-on的语法糖使用  @   @click @keyup-->
+        <!-- v-bind的语法糖使用  :  :style-->
+        <button @click="counter++">++</button>
+        <button @click="counter--" :style="{fontSize:finalSize+'px'}">--</button>
+
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:
+            {
+                counter: 0,
+                finalSize:30
+            }, methods:
+            {
+                increment() {
+                    this.counter++;
+                },
+                decrement() {
+                    this.counter--;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

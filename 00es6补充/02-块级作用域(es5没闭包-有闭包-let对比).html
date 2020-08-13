@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" style="display: flex; flex-direction: column;">
+        <button>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+        <button>按钮5</button>
+        <button>按钮6</button>
+    </div>
+    <script>
+
+        //1.没有块级作用域引起的问题:for的块级别左
+        //为什么闭包可以解决问题：函数是一个作用域
+        var btns = document.getElementsByTagName('button');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function () {
+                console.log("第" + i + "按钮被点击");
+            })
+        }
+        //相当于 
+        var i=0;
+        {
+        i=0;
+            btns[i].addEventListener('click',function()
+            {
+                console.log('第'+i+'个按钮被点击');
+            })
+        }
+
+        {
+        i=1;
+            btns[i].addEventListener('click',function()
+            {
+                console.log('第'+i+'个按钮被点击');
+            })
+        }
+
+        //........以此类推  每次点击的I 其实都被修改成最后一个 I了 由于 var 在  for循环中没有块级作用域
+        //所以最终指向的I的下标始终指向的都是 最后一个索引
+
+        //和闭包差不多意思  因为 es5只有 函数有自己的作用域
+        var btns = document.getElementsByTagName('button');
+        for (var i = 0; i < btns.length; i++) {
+            (function(num)
+            {
+                btns[num].addEventListener('click', function () {
+                console.log("第" + num + "按钮被点击");
+            })
+            })(i)
+        }
+
+
+        //当有函数闭包的时候  
+
+
+        i=0;
+        function click(i){
+            btns[i].addEventListener('click',function()
+            {
+                console.log('第'+i+'个按钮被点击');
+            })
+        }(1)
+
+        function click(i){
+            btns[i].addEventListener('click',function()
+            {
+                console.log('第'+i+'个按钮被点击');
+            })
+        }(2)
+
+
+        //..以此类推
+        //可以看出 有函数闭包的时候  每次给定的I 相当于指向的是 函数内部自己作用域内部的I  所以 最终
+        //所以指向的是  自己的I
+
+
+        //ES6中有 使用 let完美的 var 可以解决作用域的问题
+        var btns = document.getElementsByTagName('button');
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function () {
+                console.log("第" + i + "按钮被点击");
+            })
+        }
+
+        //es6中   let 代表的是自己作用域内的I 相当于 每个块级别作用域 有一个自己I  
+
+        let i=0;
+        {
+            i=0;
+            btns[i].addEventListener('click', function () {
+                console.log("第" + i + "按钮被点击");
+            })
+        }
+
+        //..  使用let 就无须使用 闭包  
+
+    </script>
+
+</body>
+
+</html>

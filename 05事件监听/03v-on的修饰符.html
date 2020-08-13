@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" @click="btn1ParentClick" style="display: flex; flex-direction: column;">
+        1. v-on/@的事件 .stop修饰符  stop 停止事件冒泡
+     <button @click.stop="btn1Click">按钮1</button>
+     <br>
+     <form action="baidu" method="get">
+         2.v-on/@的    .prevent  阻止默认行为
+         <input type="submit" @click.prevent="submitClick" value="提交">
+     </form>
+
+     <form action="baidu" method="get">
+        3.v-on/@的    修饰符串联  多个修饰符可以串联起来 
+        <input type="submit" @click.prevent.stop="submitClick" value="提交">
+    </form>
+    4.监听按钮修饰符  和 对应按键 监听
+    <input type="text" @keyup="keyup">
+    <input type="text" @keyup.enter="enter">
+
+    5.  once修饰符
+    <button @click.once.stop="once"> 一次点击</button>
+
+       
+
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:"#app",
+            data:
+            {
+                message:"你真好看"
+            },
+            methods: {
+                btn1Click()
+                {
+                    console.log("按钮1");
+                },
+                btn1ParentClick()
+                {
+                    console.log("时间冒泡");
+                },
+                btn2Click()
+                {
+                    console.log("");
+                },
+                submitClick()
+                {
+                    console.log("submitClick");
+                },
+                keyup()
+                {
+                    console.log("keyup");
+                },
+                enter()
+                {
+                    console.log("enter");
+                },
+                once()
+                {
+                    console.log("once");
+                }
+            },
+        })
+    </script>
+    
+    
+</body>
+</html>

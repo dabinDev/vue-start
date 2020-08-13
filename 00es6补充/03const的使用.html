@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../js/vue.js"></script>
+    <script>
+        //1.注意const 修饰的标识符被赋值之后 就不能被修改
+        // const name ='why'
+        // name=‘dabin’   错误
+
+        //2注意：在使用const修饰符的时候必,必须进行赋值
+        //const  name；  错误
+
+        // 3 注意  常量指向的是内存地址 ，但是可以改变对象的属性
+
+        const obj={
+            name:'dabin',
+            age:19,
+            height:166
+        }
+
+
+        obj.name='koby';
+        obj.height=187;
+        obj.age=44;
+
+
+        
+
+
+    </script>
+</body>
+</html>

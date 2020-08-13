@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" style="display: flex; flex-direction: column;">
+        <!-- 在遍历中没有使用索引下标 -->
+       <span v-for="item in names" :key="index">{{item}}</span>
+       <br>
+       <span  v-for="(item, index) in names" :key="index" :key="index">{{index+1}}{{item}}</span>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:'#app',
+            data:
+            {
+                names:[
+                    'jack','tom','miky'
+                ]
+            }
+        })         
+    </script>
+</body>
+</html>

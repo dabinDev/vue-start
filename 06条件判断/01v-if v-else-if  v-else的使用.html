@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" style="display: flex; flex-direction: column;">
+     <span v-if="score<60">你的成绩也太差了</span>
+     <span v-else-if="score<90">继续加油吧</span>
+     <span v-else>表现不错，继续保持</span>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+
+     const app=new Vue({
+            el:'#app',
+            data:
+            {
+               score:0,
+            },method:
+            {
+
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

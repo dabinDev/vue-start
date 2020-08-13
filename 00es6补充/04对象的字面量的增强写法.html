@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //const obj=new Object(); 声明对象的方式
+
+        //对象字面量的写法
+
+        // const obj =
+        // {
+        //     name: 'dabin',
+        //     age: 26,
+        //     eat: function () {
+        //         console.log('吃');
+        //     }
+        // }
+
+
+        //属性的增强写法
+
+        const name = 'dabin';
+        const age = 26;
+
+        //1.ES5的写法
+        const obj1 =
+        {
+            name: name,
+            age: age,
+        }
+        console.log('es5写法');
+        console.log(obj1);
+        //2Es6的写法
+
+        const obj2 =
+        {
+            name,
+            age,
+        }
+        console.log('es6写法');
+        console.log(obj2);
+
+        //函数的增强写法
+        //ES5的写法
+
+        const obj3 = {
+            run: function () {
+
+            },
+            eat: function () {
+
+            }
+        }
+
+        //ES6的写法
+        const obj4 =
+        {
+            run() {
+
+            },
+            eat:
+            {
+
+            }
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

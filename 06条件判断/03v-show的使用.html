@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div  id="app">
+        <!-- 1。用于判断元素是否渲染 从源头上头没有加载 组件 --> 
+        <span v-if="isif">v-if</span>
+        <!-- 2.用于设置元素是否显示 为元素添加  display:none  类似于 android 中的visibility:visible/hidden  -->
+        <span v-show="isShow">v-show</span>
+        <!-- 开发中我们 -->
+        <!-- 当元素 切换显示隐藏频繁切换的时使用v-show  加载速度更快-->
+        <!-- 当只有一次切换的时候使用v-if  更节省资源 -->
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:'#ap',
+            data:
+            {
+                isif:true,
+                isShow:true,
+            }
+        })
+
+    </script>
+</body>
+</html>

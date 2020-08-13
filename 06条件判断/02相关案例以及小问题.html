@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body >
+
+    <!-- vue在初始化view的时候会为其创建一个虚拟dom  导致如果出现页面切换展示的时候   -->
+    <!-- 就会将相同位置的相同标签的内容一同带过来   这时候我们需要避免这个问题就可以在  -->
+    <!-- 就可以在对应标签下面添加  一个  key  用于区别两个不同的view 防止出现复用问题 -->
+    <!-- 同样的我们也可以为两个不同的view添加相同的key 用作与自动切换填充  -->
+     <!-- key -->
+    <div id="app">
+        <div v-if="isUser" style="display: flex; flex-direction: column; width: 200px; box-sizing: border-box;">
+            账号<input type="text" placeholder="name" key="password">
+            密码<input type="text" placeholder="password" >
+        </div>
+        <div  v-else style="display: flex; flex-direction: column; width: 200px; box-sizing: border-box;">
+            邮箱<input type="text" placeholder="email" >
+            密码<input type="text" placeholder="password" key="password">
+        </div>
+        <button @click="isUser=!isUser">切换</button>
+    </div>
+
+
+</body>
+
+
+<script src="../js/vue.js"></script>
+<script >
+    const app=new Vue({
+        el:'#app',
+        data:
+        {
+            isUser:true
+        }
+    })
+
+</script>
+
+</html>

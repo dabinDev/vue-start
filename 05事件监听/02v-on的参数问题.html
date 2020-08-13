@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app" style="display: flex;flex-direction: column;">
+        <!-- 事件调用的方法没有参数 -->
+        <button @click="btn1Click()">按钮1</button>
+        <button @click="btn1Click">按钮2</button>
+        <!-- 在定义事件 写函数是省略了小括号 但是函数本省形参 需要一个 参数的时候 这个时候vue 会给一个默认的event参数   -->
+        <!-- 返回的对象是 浏览器生成的event 事件对象 -->
+        <button @click="btn2Click">按钮3</button>
+        <!-- 方法在定义是我们需要evet对象 同时又需要其他参数 -->
+        <!-- 在调用方式，如何手动获取到浏览器的event角度想:$event -->
+        <button @click="btn3Click('nihao',$event)">按钮3</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            methods:
+            {
+                btn1Click() {
+                    console.log("点击了按钮1");
+                },
+                btn2Click(e) {
+                    console.log("点击了按钮2");
+                    console.log(e);
+                },
+                btn3Click(arg1, arg2) {
+                    console.log("点击了按钮3");
+                    console.log(arg1, arg2);
+                },
+            }
+        })
+
+    </script>
+
+
+</body>
+
+</html>
