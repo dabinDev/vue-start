@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <span style="width: 100%; text-align:center;">图书管理系统</span>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>书籍名称</th>
+                    <th>出版日期</th>
+                    <th>价格</th>
+                    <th>购买数量</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item, index) in books" :key="item.name">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.date}}</td>
+                    <td>{{item.price}}</td>
+                    <td>
+                        <button v-bind:disabled="item.count===1" @click="decreament(index)">-</button>
+                        {{item.count}}
+                        <button @click="increament(index)">+</button>
+                    </td>
+                    <td><button>移除</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <span>总金额:{{totalPrice}}</span>
+        </div>
+</body>
+<script src="../js/vue.js"></script>
+<script src="index.js"></script>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" style="display: flex;flex-direction: column;">
+        我们vue有一个虚拟dom的diff算法，
+        当我们需要在第二个元素后面插入一个 新的元素 如果没有key 则会打乱第二个后面所有元素的排序，
+        当我们有key的时候 vue就会对应key去匹配元素 如果 key对应的value没有变化 则不会修改后面元素排序，
+         **:key="key"  key 需要在每一个元素中拥有唯一性，
+         key的作用主要就是为了提高更新虚拟dom的效率。
+
+         <br>
+        
+        <span v-for="(item, index) in items" :key="item" >{{item}}</span>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:"#app",
+            data:{
+                items:['插值操作','循环遍历','时间监听','动态绑定','计算属性']
+            }
+        })
+    </script>
+    
+</body>
+</html>

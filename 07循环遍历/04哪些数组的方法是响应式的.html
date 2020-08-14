@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" style="display: flex;flex-direction: column;">
+        <span v-for="(item, index) in items" @click="itemClick(index)" :style="{color:currentIndex==index?'red':'black'}" :key="item" >{{item}}</span>
+        <button @click="btnClick">按钮</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:"#app",
+            data:{
+                currentIndex:-1,
+                items:['插值操作','循环遍历','时间监听','动态绑定','计算属性']
+            },
+            methods: {
+                itemClick(index)
+                {
+                    this.currentIndex=index;
+                },
+                btnClick()
+                {
+                    // 1.push方法 在数组最后立即追加 一个或多个元素
+                    this.items.push("123");
+                    this.items.push("123","123","123");
+                    // 2.pop方法  删除数组中最后一个元素
+                    this.items.pop();
+                    // 3.shift 删除数组中的第一个元素
+                    this.items.shift();
+                    //4.unshift 在元素最前面添加元素
+                    this.items.unshift('123asd');
+
+                    //5.** splice 对数组 删除元素/插入元素/替换元素、
+                    // 删除元素 ：第二个参数传入想删除的个数  如果不传 则删除全部 
+                    // 插入元素 ：第二个元素 传0  第一个参数 从哪里开始 就从哪里插入 第三个参数 是可变数组
+                    // 替换元素 :第二个元素代表我们要替换几个元素 第一个参数 为从哪里开始  第三个参数 可变数组
+                   this.items.splice(1,0,"qwe");
+
+                   //6.sort 对数组进行排序 立即生效
+                   this.items.sort();
+
+                   //7.reverse()  数组 翻转 立即生效
+                   this.items.reverse();
+
+
+
+
+                   //8.注意：通过索引值修改数组中的元素  不会立即生效 vue没有对这种方式修改进行监听
+                   this.items[0]="hjdsah";
+                   
+
+
+
+            
+                    
+
+                }
+            },
+        })
+    </script>
+    
+</body>
+</html>
