@@ -50,15 +50,31 @@ const app=new Vue({
                 return;
             }
             this.books[index].count--;
+        },
+        remove(index)
+        {
+            this.books.splice(index,1);
         }
     },
     computed: {
         totalPrice()
         {
             let totalPrice=0;
-            for (let index = 0; index < this.books.length; index++) {
-                let item=this.books[index];
-                totalPrice+=(item.count*item.price);
+            // 数组操作方式
+            // 1.普通  for i 循环  for循环
+            // for (let index = 0; index < this.books.length; index++) {
+            //     let item=this.books[index];
+            //     totalPrice+=(item.count*item.price);
+            // }
+
+            //2. for in   index 循环 for in循环
+            // for (let index in this.books) {
+            // let item=this.books[index];
+            // totalPrice+=(item.count*item.price);
+            // }
+            // 3.for of  item循环  for item
+            for (const item of this.books) {
+             totalPrice+=(item.count*item.price);
             }
             return totalPrice;
         }
